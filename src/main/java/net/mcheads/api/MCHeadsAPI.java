@@ -1,19 +1,19 @@
 package net.mcheads.api;
 
 import java.util.Objects;
+import net.mcheads.internal.EntityImpl;
 
 public class MCHeadsAPI {
-
-
 	
-	public static IEntity getEntity(String name) {
-
-		Objects.requireNonNull(name, "Entity name cannot be null.");
-		
-		if(name.startsWith(Names.MHF_PREFIX)) {
-			
-		}
-		return null;
+	public static final int MAX_SIZE = 600;
+	
+	public static final int AVATAR_MIN_SIZE = 8;
+	
+	public static final int ISOMETRIC_MIN_SIZE = 32;
+	
+	public static IEntity getEntity(String nameOrId) {
+		Objects.requireNonNull(nameOrId, "Entity name/id cannot be null.");
+		return new EntityImpl(nameOrId, nameOrId.startsWith(Names.MHF_PREFIX));
 	}
-	
+
 }

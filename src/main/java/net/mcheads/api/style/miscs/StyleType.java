@@ -1,4 +1,4 @@
-package net.mcheads.api.style;
+package net.mcheads.api.style.miscs;
 
 public enum StyleType {
 

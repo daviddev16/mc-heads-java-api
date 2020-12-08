@@ -4,25 +4,24 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-
 import javax.imageio.ImageIO;
 
-import net.mcheads.api.entities.IEntityPlayer;
-import net.mcheads.api.style.StyleOption;
-import net.mcheads.internal.EntityPlayerImpl;
+import net.mcheads.api.IEntity;
+import net.mcheads.api.MCHeadsAPI;
+import net.mcheads.api.Names;
+import net.mcheads.api.style.miscs.StyleOption;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
 
-		IEntityPlayer player = new EntityPlayerImpl("88eeb349483c42798361ec8bbbb60afd");
+		IEntity player = MCHeadsAPI.getEntity(Names.WITCH);
 
-		System.out.println(player.getName());
-		System.out.println(player.getUserId());
-		System.out.println(Arrays.toString(player.getNameHistory().getAllNames()));
+		//System.out.println(player.getName());
+		//System.out.println(player.getUserId());
+		//System.out.println(Arrays.toString(player.getNameHistory().getAllNames()));
 
-		byte[] face = player.getFacing(StyleOption.BODY, 192, true);
+		byte[] face = player.getFacing(StyleOption.HEAD);
 
 		File imgFile = new File("img.png");
 		if(!imgFile.exists()) {
