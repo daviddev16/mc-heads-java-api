@@ -4,8 +4,8 @@ import java.io.InputStream;
 
 import net.mcheads.api.IEntity;
 import net.mcheads.api.style.IsometricStyle;
-import net.mcheads.api.style.miscs.Direction;
-import net.mcheads.api.style.miscs.StyleOption;
+import net.mcheads.api.style.options.Direction;
+import net.mcheads.api.style.options.StyleOption;
 
 public class IsometricRoute extends Route {
 

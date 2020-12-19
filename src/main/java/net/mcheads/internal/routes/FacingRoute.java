@@ -4,7 +4,7 @@ import java.io.InputStream;
 
 import net.mcheads.api.IEntity;
 import net.mcheads.api.style.FacingStyle;
-import net.mcheads.api.style.miscs.StyleOption;
+import net.mcheads.api.style.options.StyleOption;
 
 public class FacingRoute extends Route {
 

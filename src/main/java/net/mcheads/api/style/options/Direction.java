@@ -1,4 +1,4 @@
-package net.mcheads.api.style.miscs;
+package net.mcheads.api.style.options;
 
 public enum Direction {
 

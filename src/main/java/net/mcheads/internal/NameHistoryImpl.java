@@ -1,20 +1,17 @@
 package net.mcheads.internal;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import net.mcheads.api.history.INameHistory;
 import net.mcheads.api.history.NameChangeProperty;
 
 public class NameHistoryImpl implements INameHistory {
 
-	private final List<NameChangeProperty> nameChangeHistory;
+	private final Vector<NameChangeProperty> nameChangeHistory;
 
 	public NameHistoryImpl() {
-		nameChangeHistory = new ArrayList<NameChangeProperty>();
+		nameChangeHistory = new Vector<NameChangeProperty>();
 	}
 
 	public void retrieveList(JSONArray array) {
@@ -29,7 +26,7 @@ public class NameHistoryImpl implements INameHistory {
 		
 	}
 
-	public List<NameChangeProperty> getNameChangesHistory() {
+	public Vector<NameChangeProperty> getNameChangesHistory() {
 		return nameChangeHistory;
 	}
 

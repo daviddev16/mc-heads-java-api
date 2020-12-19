@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import net.mcheads.api.IEntity;
 import net.mcheads.api.MCHeadsAPI;
 import net.mcheads.api.MHF;
-import net.mcheads.api.style.miscs.StyleOption;
+import net.mcheads.api.style.options.StyleOption;
 
 public class Main {
 
@@ -23,7 +23,7 @@ public class Main {
 		System.out.println(player.getUserId());
 		System.out.println(Arrays.toString(player.getNameHistory().getAllNames()));
 
-		byte[] face = player.getIsometric(StyleOption.HEAD, 64);
+		byte[] face = player.getIsometric(StyleOption.HEAD);
 
 		File imgFile = new File("img.png");
 		if(!imgFile.exists()) {
