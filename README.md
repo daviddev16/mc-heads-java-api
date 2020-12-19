@@ -1,5 +1,5 @@
 # Java library for MCHeads API.
-with this library you can use 99% of the mcheads web api, requesting in java: isometric, face, body, player information and *MHF* heads.
+with this library you can use 99% of the mcheads web api: isometric, face, body, player information and *MHF* heads.
 
 # How to Use it
 
