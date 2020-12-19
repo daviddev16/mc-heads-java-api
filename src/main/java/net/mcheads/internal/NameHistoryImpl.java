@@ -1,8 +1,11 @@
 package net.mcheads.internal;
 
+import java.util.Iterator;
 import java.util.Vector;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
 import net.mcheads.api.history.INameHistory;
 import net.mcheads.api.history.NameChangeProperty;
 
@@ -13,22 +16,19 @@ public class NameHistoryImpl implements INameHistory {
 	public NameHistoryImpl() {
 		nameChangeHistory = new Vector<NameChangeProperty>();
 	}
-
-	public void retrieveList(JSONArray array) {
-		
+	
+	public void retrieve(JsonArray array) {
 		getNameChangesHistory().clear();
-		
-		for(int i = 0; i < array.length(); i++) {
-			JSONObject nameChange = array.getJSONObject(i);
-			long date = (nameChange.has("date")) ? nameChange.getLong("date") : -1L;
-			getNameChangesHistory().add(new NameChangeProperty(nameChange.getString("name"), date));
+		Iterator<JsonElement> arrayIterator = array.iterator();
+		while (arrayIterator.hasNext()) {
+			JsonObject nameChange = (JsonObject) arrayIterator.next();
+			getNameChangesHistory().add(new NameChangeProperty(nameChange.get("name").getAsString(),
+					(nameChange.has("date")) ? nameChange.get("data").getAsLong() : -1L));
 		}
-		
 	}
-
+	
 	public Vector<NameChangeProperty> getNameChangesHistory() {
 		return nameChangeHistory;
 	}
-
 
 }
