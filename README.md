@@ -27,6 +27,7 @@ byte[] isometricHead = herobrine.getIsometric(StyleOption.HEAD, 32); /*the raw b
 
 ```
 All functions available:
+
 ![list](https://i.imgur.com/KNJvhSv.png)
 
 # Updates
