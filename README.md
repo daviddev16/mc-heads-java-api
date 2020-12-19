@@ -5,3 +5,7 @@ Several bugs are in there, Use on your own.
 
 **[Not released]**
 **[Not documented]**
+
+# News
+
+Improving some of the issues.
