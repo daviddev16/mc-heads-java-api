@@ -16,7 +16,7 @@ import net.mcheads.api.style.options.StyleOption;
 import net.mcheads.internal.routes.StyleRoutes;
 import net.mcheads.internal.utils.Utilities;
 
-public class EntityImpl implements IEntity {
+public final class EntityImpl implements IEntity {
 
 	private static final String MOJANG_PLAYER_PROFILE = "https://mc-heads.net/minecraft/profile/%s";
 
@@ -32,13 +32,12 @@ public class EntityImpl implements IEntity {
 		initEntity(mhf.getMhfId(), cacheOptions);
 	}
 
-	private synchronized void initEntity(String nameOrId, CacheOptions cacheOptions) {
+	private void initEntity(String nameOrId, CacheOptions cacheOptions) {
 		this.nameOrId = nameOrId;
 		if (!cacheOptions.canRetrieveMonjangData() && !cacheOptions.canRetrieveNameHistory()) {
 			return;
 		}
-		String url = String.format(MOJANG_PLAYER_PROFILE, nameOrId);
-		Utilities.doGet(url, json -> {
+		Utilities.doJsonGet(String.format(MOJANG_PLAYER_PROFILE, nameOrId), json -> {
 			if (json instanceof JsonObject) {
 				if (cacheOptions.canRetrieveNameHistory()) {
 					JsonArray nameHistoryArray = ((JsonObject) json).getAsJsonArray("name_history");
@@ -47,10 +46,11 @@ public class EntityImpl implements IEntity {
 				}
 				userData = new UserData(((JsonObject) json).get("name").getAsString(),
 						((JsonObject) json).get("id").getAsString());
-
-				this.nameOrId = userData.getId();
 			}
 		});
+		if (userData != null) {
+			this.nameOrId = userData.getId();
+		}
 	}
 
 	public synchronized byte[] getFacing(StyleOption option, int size, boolean nohelm)
@@ -134,7 +134,7 @@ public class EntityImpl implements IEntity {
 			throw new NullPointerException("Names history was not requested.");
 		return nameHistory;
 	}
-	
+
 	public String getUserId() {
 		return (userData != null) ? userData.getId() : null;
 	}

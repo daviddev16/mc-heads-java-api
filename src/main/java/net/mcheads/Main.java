@@ -16,11 +16,12 @@ public class Main {
 
 	public static void main(String[] args) throws IOException, EntityOutOfBoundsException {
 
-		IEntity player = MCHeadsAPI.getEntity(MHF.MHF_ALEX, Options.RAW);
+		
+		IEntity player = MCHeadsAPI.getEntity(MHF.MHF_ARROWLEFT, Options.DEFAULT);
 
 	    System.out.println(player.getName());
-	//	System.out.println(player.getUserId());
-	//	System.out.println(Arrays.toString(player.getNameHistory().getAllNames()));
+	    System.out.println(player.getUserId());
+	   // System.out.println(Arrays.toString(player.getNameHistory().getAllNames()));
 
 		byte[] face = player.getIsometric(StyleOption.HEAD, 600);
 
@@ -32,7 +33,6 @@ public class Main {
 		ByteArrayInputStream bis = new ByteArrayInputStream(face);
 		BufferedImage bImage2 = ImageIO.read(bis);
 		ImageIO.write(bImage2, "png", imgFile);
-
 
 	}
 

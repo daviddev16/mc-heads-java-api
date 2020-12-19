@@ -1,2 +1,2 @@
 package net.mcheads.internal;
-enum Source {	ISOMETRIC, FACING }
+enum Source {	ISOMETRIC, FACING  }
