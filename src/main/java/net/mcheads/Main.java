@@ -9,7 +9,6 @@ import net.mcheads.api.IEntity;
 import net.mcheads.api.MCHeadsAPI;
 import net.mcheads.api.MHF;
 import net.mcheads.api.exceptions.EntityOutOfBoundsException;
-import net.mcheads.api.style.options.StyleOption;
 import net.mcheads.internal.Options;
 
 public class Main {
@@ -23,7 +22,7 @@ public class Main {
 	    System.out.println(player.getUserId());
 	   // System.out.println(Arrays.toString(player.getNameHistory().getAllNames()));
 
-		byte[] face = player.getIsometric(StyleOption.HEAD, 600);
+		byte[] face = player.getDefaultFacing();
 
 		File imgFile = new File("img.png");
 		if(!imgFile.exists()) {
