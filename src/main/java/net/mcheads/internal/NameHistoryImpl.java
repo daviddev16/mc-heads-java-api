@@ -11,7 +11,7 @@ import net.mcheads.api.history.NameChangeProperty;
 
 public class NameHistoryImpl implements INameHistory {
 
-	private List<NameChangeProperty> nameChangeHistory;
+	private final List<NameChangeProperty> nameChangeHistory;
 
 	public NameHistoryImpl() {
 		nameChangeHistory = new ArrayList<NameChangeProperty>();

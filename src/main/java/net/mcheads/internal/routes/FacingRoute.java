@@ -9,6 +9,7 @@ import net.mcheads.api.style.miscs.StyleOption;
 public class FacingRoute extends Route {
 
 	public InputStream get(IEntity entity, StyleOption option, int size, boolean nohelm) {
+
 		String url = null;
 		switch (option) {
 			case BODY: 

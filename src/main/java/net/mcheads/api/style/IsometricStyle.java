@@ -1,5 +1,4 @@
 package net.mcheads.api.style;
-
 import net.mcheads.api.style.miscs.Direction;
 import net.mcheads.api.style.miscs.StyleOption;
 

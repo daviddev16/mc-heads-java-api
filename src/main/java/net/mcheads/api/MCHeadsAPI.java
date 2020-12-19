@@ -5,15 +5,15 @@ import net.mcheads.internal.EntityImpl;
 
 public class MCHeadsAPI {
 	
-	public static final int MAX_SIZE = 600;
-	
-	public static final int AVATAR_MIN_SIZE = 8;
-	
-	public static final int ISOMETRIC_MIN_SIZE = 32;
-	
-	public static IEntity getEntity(String nameOrId) {
+
+	public static synchronized IEntity getEntity(String nameOrId) {
 		Objects.requireNonNull(nameOrId, "Entity name/id cannot be null.");
-		return new EntityImpl(nameOrId, nameOrId.startsWith(Names.MHF_PREFIX));
+		return new EntityImpl(nameOrId);
 	}
 
+	public static synchronized IEntity getEntity(MHF mhf) {
+		Objects.requireNonNull(mhf, "MHF object cannot be null.");
+		return new EntityImpl(mhf);
+	}
+	
 }
